@@ -33,11 +33,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4.2.2
+
     - name: LS
       run: ls -al
-    - name: instalacion
-      run: |
-        echo "inicio de instalacion" >> registro.txt
-        chmod +x script.sh
-        ./script.sh
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4.1.0
+
+    - name: node version
+      run: node --version  
+  
     
