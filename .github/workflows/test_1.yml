@@ -7,7 +7,7 @@ on:
 
   pull_request:
       branches:
-        - main
+        - main   
 
 jobs: 
   hola: 
@@ -35,5 +35,9 @@ jobs:
       uses: actions/checkout@v4.2.2
     - name: LS
       run: ls -al
-    
+    - name: instalacion
+      run: |
+        echo "inicio de instalacion" >> registro.txt
+        chmod +x script.sh
+        ./script.sh
     
