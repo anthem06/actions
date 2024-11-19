@@ -54,7 +54,7 @@ jobs:
       run: php --version  
 
     - name: Echo con action personal
-      uses: ./.github/actions/my-actions
+      uses: ./.github/actions/my-action
 
 
 
