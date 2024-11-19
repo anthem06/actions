@@ -52,7 +52,9 @@ jobs:
 
     - name: PHP version
       run: php --version  
-      
+
+    - name: Echo con action personal
+      uses: ./.github/actions/my-actions
 
 
 
