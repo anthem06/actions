@@ -55,7 +55,8 @@ jobs:
 
     - name: Echo con action personal
       uses: ./.github/actions/my-action
-
+      with:
+        message: "Antonio"  
 
 
   
