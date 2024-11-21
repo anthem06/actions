@@ -13,16 +13,9 @@ jobs:
   hola: 
     runs-on: ubuntu-latest
 
-    env:
-      MY_VAR: Mi variable de entorno
-    
-    steps:
-      - name: imprime variables
-        run: echo "Valor $MY_VAR"
-
     steps: 
       - name: imprime variable del repositorio
-        run : echo "Valor {{ vars.MY_VARIABLE_2 }}"
+        run : echo "Valor ${{ vars.MY_VARIABLE_2 }}"
   
 
 
