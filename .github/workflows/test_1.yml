@@ -16,6 +16,9 @@ jobs:
     steps: 
       - name: imprime variable del repositorio
         run : echo "Valor ${{ vars.MY_VARIABLE_2 }}"
+
+      - name: Secreto
+        run: echo "Valor del secreto ${{ secrets.MY_SECRET }}"
   
 
 
