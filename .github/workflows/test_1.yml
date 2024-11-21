@@ -18,6 +18,7 @@ jobs:
         image: mysql:5.7
         env: 
           MYSQL_ROOT_PASSWORD: example
+          MY_VAR: este es un ejemplo
         ports: 
           - 3306:3306
 
@@ -38,6 +39,9 @@ jobs:
 
     - name: Read file
       run: cat hola.txt
+
+    - name: imprime variable
+      run: echo "valor: $MY_VAR"
 
   other: 
     runs-on: ubuntu-latest
