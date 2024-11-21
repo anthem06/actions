@@ -17,9 +17,12 @@ jobs:
       MY_VAR: Mi variable de entorno
     
     steps:
-      - name: imprime variable
+      - name: imprime variables
         run: echo "Valor $MY_VAR"
 
+    step: 
+      - name: imprime variable del repositorio
+        run : echo "Valor {{ vars.MY_VARIABLE_2 }}"
   
 
 
