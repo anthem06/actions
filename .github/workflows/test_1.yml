@@ -13,67 +13,14 @@ jobs:
   hola: 
     runs-on: ubuntu-latest
 
-    services: 
-      mysql: 
-        image: mysql:5.7
-        env: 
-          MYSQL_ROOT_PASSWORD: example
-          MY_VAR: este es un ejemplo
-        ports: 
-          - 3306:3306
-
-      redis: 
-        image: redis
-        ports:
-          - 6379:6379
+    env:
+      MY_VAR: Mi variable de entorno
     
     steps:
-    - name: Hola Mundo
-      run: echo "Hola Mundo"
+      - name: imprime variable
+        run: echo "Valor $MY_VAR"
 
-    - name: touch file
-      run: touch hola.txt
-
-    - name: Set text
-      run: echo "Hola Mundo"  >> hola.txt 
-
-    - name: Read file
-      run: cat hola.txt
-
-    - name: imprime variable
-      run: echo "valor $MY_VAR"
-
-  other: 
-    runs-on: ubuntu-latest
-    needs: [hola]
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4.2.2
-
-    - name: LS
-      run: ls -al
-
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v4.1.0
-      with: 
-        node-version: latest
-
-    - name: node version
-      run: node --version  
-
-    - name: PHP
-      uses: shivammathur/setup-php@v2
-      with: 
-        php-version: '8.3'
-
-    - name: PHP version
-      run: php --version  
-
-    - name: Echo con action personal
-      uses: ./.github/actions/my-action
-      with:
-        message: "Antonio"  
+  
 
 
   
