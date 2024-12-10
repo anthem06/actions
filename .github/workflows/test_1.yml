@@ -12,15 +12,46 @@ on:
 jobs: 
   hola: 
     runs-on: ubuntu-latest
-
-    steps: 
-      - name: imprime variable del repositorio
-        run : echo "Valor ${{ vars.MY_VARIABLE_2 }}"
-
-      - name: Secreto
-        run: echo "Valor del secreto ${{ secrets.MY_SECRET }}"
-  
-
-
-  
     
+    steps:
+    - name: Hola Mundo
+      run: echo "Hola Mundo"
+
+    - name: touch file
+      run: touch hola.txt
+
+    - name: Set text
+      run: echo "Hola Mundo"  >> hola.txt 
+
+    - name: Read file
+      run: cat hola.txt
+
+  other: 
+    runs-on: ubuntu-latest
+    needs: [hola]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4.2.2
+
+    - name: LS
+      run: ls -al
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4.1.0
+      with: 
+        node-version: latest
+
+    - name: node version
+      run: node --version  
+
+    - name: PHP
+      uses: shivammathur/setup-php@v2
+      with: 
+        php-version: '8.3'
+
+    - name: PHP version
+      run: php --version  
+
+    - name: Echo con action personal
+      uses: ./.github/actions/my-action
